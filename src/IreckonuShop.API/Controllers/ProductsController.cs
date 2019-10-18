@@ -1,6 +1,10 @@
 ﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
 using IreckonuShop.API.Utility;
 using IreckonuShop.API.ViewModels;
+using IreckonuShop.BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IreckonuShop.API.Controllers
@@ -9,13 +13,31 @@ namespace IreckonuShop.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly IProductService _productService;
+        private readonly IMapper _mapper;
+
+        public ProductsController(IProductService productService, IMapper mapper)
+        {
+            _productService = productService;
+            _mapper = mapper;
+        }
+
         [HttpPost]
         [DisableDefaultFormModelBinding]
-        public void UploadFromCsvFile([ModelBinder(typeof(FormFileModelBinder<Product, CsvParser<Product>>))] FormFile<Product> file)
+        public async Task<IActionResult> UploadFromCsvFile([ModelBinder(typeof(FormFileModelBinder<Product, CsvParser<Product>>))] FormFile<Product> file)
         {
-            var prod = file.StreamContent().ToList();
-
-            var a = prod.Count;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            foreach (var product in file.StreamContent())
+            {
+                var productModel = _mapper.Map<BusinessLogic.Models.Product>(product);
+                await _productService.AddAsync(productModel, CancellationToken.None);
+            }
+            
+            return Ok();
         }
     }
 }

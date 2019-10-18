@@ -11,27 +11,7 @@ using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.WebUtilities;
 
 namespace IreckonuShop.API.Utility
-{
-    public interface IFileParser<out TData>
-    {
-        IEnumerable<TData> Parse(TextReader textReader, bool hasHeaderRecord);
-    }
-
-    public class CsvParser<TData> : IFileParser<TData>
-    {
-        public IEnumerable<TData> Parse(TextReader textReader, bool hasHeaderRecord)
-        {
-            using (var csv = new CsvReader(textReader))
-            {
-                csv.Configuration.HasHeaderRecord = hasHeaderRecord;
-                foreach (var data in csv.GetRecords<TData>())
-                {
-                    yield return data;
-                }
-            }
-        }
-    }
-
+{  
     public class FormFile<TData>
     {
         private readonly HttpRequest _request;
@@ -43,23 +23,23 @@ namespace IreckonuShop.API.Utility
             _fileParser = fileParser;
         }
 
-        public IEnumerable<TData> StreamContent(CancellationToken token)
+        public IEnumerable<TData> StreamContent()
         {
             var boundary = _request.GetMultipartBoundary();
             var reader = new MultipartReader(boundary, _request.Body);
-            var section = reader.ReadNextSectionAsync(token).Result;
+            var section = reader.ReadNextSectionAsync().Result;
 
             while (section != null)
             {
                 using (var streamReader = new StreamReader(section.Body))
                 {
-                    foreach (var data in _fileParser.Parse(streamReader, true))
+                    foreach (var data in _fileParser.Parse(streamReader))
                     {
                         yield return data;
                     }
                 }
 
-                section = reader.ReadNextSectionAsync(token).Result;
+                section = reader.ReadNextSectionAsync().Result;
             }
         }
     }

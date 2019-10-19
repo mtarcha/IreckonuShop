@@ -11,10 +11,12 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="System.IO.Abstractions" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\IreckonuShop.BusinessLogic\IreckonuShop.BusinessLogic.csproj" />
+    <ProjectReference Include="..\IreckonuShop.FileSystem\IreckonuShop.FileSystem.csproj" />
     <ProjectReference Include="..\IreckonuShop.PersistenceLayer.Relational\IreckonuShop.PersistenceLayer.Relational.csproj" />
   </ItemGroup>
 

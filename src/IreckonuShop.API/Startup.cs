@@ -2,6 +2,7 @@
 using CsvHelper.Configuration;
 using IreckonuShop.BusinessLogic.Services;
 using IreckonuShop.Domain;
+using IreckonuShop.FileSystem;
 using IreckonuShop.PersistenceLayer.Relational;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,7 +38,14 @@ namespace IreckonuShop.API
             }
             else if(storage == "json")
             {
-                
+                var fileSystemProductsRepository = new FileSystemProductsRepository(
+                    Configuration["FileSystemStorage"], 
+                    new System.IO.Abstractions.FileSystem(), 
+                    new JsonSerializer<Product>(),
+                    new Sha256HashCalculator());
+
+                services.AddScoped<IProductsRepository, FileSystemProductsRepository>(x => fileSystemProductsRepository);
+                    
             }
             else
             {

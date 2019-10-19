@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IreckonuShop.BusinessLogic"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IreckonuShop.PersistenceLayer.Relational", "src\IreckonuShop.PersistenceLayer.Relational\IreckonuShop.PersistenceLayer.Relational.csproj", "{4DCD92B9-445D-4B28-BDAF-7871AB9ACC31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IreckonuShop.FileSystem", "src\IreckonuShop.FileSystem\IreckonuShop.FileSystem.csproj", "{4CD0D28D-37E0-4494-8CDB-AC3DB4AFDE22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4DCD92B9-445D-4B28-BDAF-7871AB9ACC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCD92B9-445D-4B28-BDAF-7871AB9ACC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCD92B9-445D-4B28-BDAF-7871AB9ACC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD0D28D-37E0-4494-8CDB-AC3DB4AFDE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD0D28D-37E0-4494-8CDB-AC3DB4AFDE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD0D28D-37E0-4494-8CDB-AC3DB4AFDE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD0D28D-37E0-4494-8CDB-AC3DB4AFDE22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

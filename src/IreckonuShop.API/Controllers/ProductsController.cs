@@ -2,7 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using IreckonuShop.API.Utility;
+using IreckonuShop.API.Utilities;
+using IreckonuShop.API.Utilities.LargeFileModelBinding;
 using IreckonuShop.API.ViewModels;
 using IreckonuShop.BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;

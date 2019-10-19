@@ -12,16 +12,18 @@ namespace IreckonuShop.BusinessLogic.Services
 
         private Dictionary<string, Color> _nameToColorMap = new Dictionary<string, Color>
         {
-            {"blauw", Color.Blue },
-            {"oranje", Color.Orange },
-            {"groen", Color.Green },
-            {"geel", Color.Yellow },
-            {"wit", Color.White },
-            {"zwart", Color.Black },
-            {"rood", Color.Red },
-            {"paars", Color.Purple },
-            {"roze", Color.Pink },
-            {"bruin", Color.Brown },
+            { "blauw", Color.Blue },
+            { "oranje", Color.Orange },
+            { "groen", Color.Green },
+            { "geel", Color.Yellow },
+            { "wit", Color.White },
+            { "zwart", Color.Black },
+            { "rood", Color.Red },
+            { "paars", Color.Purple },
+            { "roze", Color.Pink },
+            { "bruin", Color.Brown },
+            { "grijs", Color.Gray },
+            { "beige", Color.Beige }
         };
 
         private Dictionary<string, TargetClient> _targetNameToTargetClient = new Dictionary<string, TargetClient>
@@ -29,7 +31,7 @@ namespace IreckonuShop.BusinessLogic.Services
             {"boy", TargetClient.Boy },
             {"girl", TargetClient.Girl },
             {"baby", TargetClient.Baby },
-            {"NOINDEX", TargetClient.Unknown },
+            {"noindex", TargetClient.Unknown },
         };
 
         public Color ParseColor(string colorName)

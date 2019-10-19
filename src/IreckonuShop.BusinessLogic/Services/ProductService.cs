@@ -30,7 +30,7 @@ namespace IreckonuShop.BusinessLogic.Services
                 product.Size,
                 _localizedStringParser.ParseColor(product.Color));
 
-            await _repository.CreateAsync(domainProduct, token);
+            await _repository.AddOrUpdateAsync(domainProduct, token);
         }
     }
 }

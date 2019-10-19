@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace IreckonuShop.API.Utility
+namespace IreckonuShop.API.Utilities.LargeFileModelBinding
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class DisableDefaultFormModelBindingAttribute : Attribute, IResourceFilter

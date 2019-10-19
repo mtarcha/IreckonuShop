@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace IreckonuShop.API.Utility
+namespace IreckonuShop.API.Utilities.LargeFileModelBinding
 {
     public class FormFileModelBinder<TData, TFileParser> : IModelBinder
         where TFileParser : IFileParser<TData>, new()

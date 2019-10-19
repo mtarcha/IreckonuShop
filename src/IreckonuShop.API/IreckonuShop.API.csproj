@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IreckonuShop.BusinessLogic\IreckonuShop.BusinessLogic.csproj" />
+    <ProjectReference Include="..\IreckonuShop.PersistenceLayer.Relational\IreckonuShop.PersistenceLayer.Relational.csproj" />
   </ItemGroup>
 
 </Project>

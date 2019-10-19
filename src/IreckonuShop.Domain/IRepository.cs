@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace IreckonuShop.Domain
 {
-    public interface IRepository<TData>
+    public interface IRepository<in TData>
     {
-        Task<TData> CreateAsync(TData data, CancellationToken token);
+        Task AddOrUpdateAsync(TData data, CancellationToken token);
     }
 
     public interface IProductsRepository : IRepository<Product>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace IreckonuShop.API.Utility
+namespace IreckonuShop.API.Utilities
 {
     public interface IFileParser<out TData>
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using CsvHelper;
 
-namespace IreckonuShop.API.Utility
+namespace IreckonuShop.API.Utilities
 {
     public class CsvParser<TData> : IFileParser<TData>
     {

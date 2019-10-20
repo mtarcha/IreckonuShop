@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using IreckonuShop.Common.Utilities.FileContentParsing;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace IreckonuShop.API.Utilities.LargeFileModelBinding
+namespace IreckonuShop.Common.Utilities.CustomModelBinding.LargeFormFile
 {  
-    public class FormFile<TData>
+    public class LargeFormFile<TData>
     {
         private readonly HttpRequest _request;
         private readonly IFileParser<TData> _fileParser;
 
-        public FormFile(HttpRequest request, IFileParser<TData> fileParser)
+        public LargeFormFile(HttpRequest request, IFileParser<TData> fileParser)
         {
             _request = request;
             _fileParser = fileParser;
@@ -25,12 +26,9 @@ namespace IreckonuShop.API.Utilities.LargeFileModelBinding
 
             while (section != null)
             {
-                using (var streamReader = new StreamReader(section.Body))
+                foreach (var data in _fileParser.Parse(section.Body))
                 {
-                    foreach (var data in _fileParser.Parse(streamReader))
-                    {
-                        yield return data;
-                    }
+                    yield return data;
                 }
 
                 section = reader.ReadNextSectionAsync().Result;

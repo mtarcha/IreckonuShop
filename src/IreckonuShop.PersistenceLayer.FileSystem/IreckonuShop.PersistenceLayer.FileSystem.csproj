@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="System.IO.Abstractions" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IreckonuShop.Common.Utilities\IreckonuShop.Common.Utilities.csproj" />
     <ProjectReference Include="..\IreckonuShop.Domain\IreckonuShop.Domain.csproj" />
   </ItemGroup>
 

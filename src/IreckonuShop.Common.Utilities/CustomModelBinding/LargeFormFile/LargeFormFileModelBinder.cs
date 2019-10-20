@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
+using IreckonuShop.Common.Utilities.FileContentParsing;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace IreckonuShop.API.Utilities.LargeFileModelBinding
+namespace IreckonuShop.Common.Utilities.CustomModelBinding.LargeFormFile
 {
-    public class FormFileModelBinder<TData, TFileParser> : IModelBinder
+    public class LargeFormFileModelBinder<TData, TFileParser> : IModelBinder
         where TFileParser : IFileParser<TData>, new()
     {
         private readonly TFileParser _fileParser;
 
-        public FormFileModelBinder()
+        public LargeFormFileModelBinder()
         {
             _fileParser = new TFileParser();
         }
@@ -19,7 +20,7 @@ namespace IreckonuShop.API.Utilities.LargeFileModelBinding
             if (bindingContext == null)
                 throw new ArgumentNullException(nameof(bindingContext));
 
-            bindingContext.Result = ModelBindingResult.Success(new FormFile<TData>(bindingContext.HttpContext.Request, _fileParser));
+            bindingContext.Result = ModelBindingResult.Success(new LargeFormFile<TData>(bindingContext.HttpContext.Request, _fileParser));
 
             return Task.CompletedTask;
         }

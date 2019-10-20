@@ -1,8 +1,7 @@
-﻿using IreckonuShop.PersistenceLayer.Relational.Entities;
+﻿using IreckonuShop.PersistenceLayer.RelationalDb.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace IreckonuShop.PersistenceLayer.Relational
+namespace IreckonuShop.PersistenceLayer.RelationalDb
 {
     public class IreckonuShopDbContext : DbContext 
     {

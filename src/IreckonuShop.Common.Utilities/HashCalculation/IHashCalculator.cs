@@ -1,4 +1,4 @@
-﻿namespace IreckonuShop.FileSystem
+﻿namespace IreckonuShop.Common.Utilities.HashCalculation
 {
     public interface IHashCalculator
     {

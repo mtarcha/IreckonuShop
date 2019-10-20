@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace IreckonuShop.FileSystem
+namespace IreckonuShop.Common.Utilities.Serialization
 {
     public class JsonSerializer<T> : ISerializer<T>
     {

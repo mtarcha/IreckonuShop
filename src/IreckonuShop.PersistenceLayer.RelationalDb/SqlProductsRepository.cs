@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using IreckonuShop.Domain;
-using IreckonuShop.PersistenceLayer.Relational.Entities;
+using IreckonuShop.PersistenceLayer.RelationalDb.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace IreckonuShop.PersistenceLayer.Relational
+namespace IreckonuShop.PersistenceLayer.RelationalDb
 {
     public class SqlProductsRepository : IProductsRepository
     {

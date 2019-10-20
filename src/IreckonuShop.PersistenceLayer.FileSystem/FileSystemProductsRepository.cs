@@ -3,9 +3,11 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using IreckonuShop.Common.Utilities.HashCalculation;
+using IreckonuShop.Common.Utilities.Serialization;
 using IreckonuShop.Domain;
 
-namespace IreckonuShop.FileSystem
+namespace IreckonuShop.PersistenceLayer.FileSystem
 {
     public class FileSystemProductsRepository : IProductsRepository
     {

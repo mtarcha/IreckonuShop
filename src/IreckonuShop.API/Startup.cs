@@ -1,9 +1,11 @@
-﻿using AutoMapper;
-using CsvHelper.Configuration;
+﻿using System.IO;
+using AutoMapper;
 using IreckonuShop.BusinessLogic.Services;
+using IreckonuShop.Common.Utilities.HashCalculation;
+using IreckonuShop.Common.Utilities.Serialization;
 using IreckonuShop.Domain;
-using IreckonuShop.FileSystem;
-using IreckonuShop.PersistenceLayer.Relational;
+using IreckonuShop.PersistenceLayer.FileSystem;
+using IreckonuShop.PersistenceLayer.RelationalDb;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +28,9 @@ namespace IreckonuShop.API
         public void ConfigureServices(IServiceCollection services)
         {
             var storage = Configuration["StorageType"];
+            var connectionString = Configuration.GetConnectionString("IreckonuStorageConnectionString");
             if (storage == "sql")
             {
-                var connectionString = Configuration.GetConnectionString("IreckonuDBConnectionString");
                 services.AddDbContext<IreckonuShopDbContext>(cfg =>
                 {
                     cfg.UseSqlServer(connectionString);
@@ -39,17 +41,16 @@ namespace IreckonuShop.API
             else if(storage == "json")
             {
                 var fileSystemProductsRepository = new FileSystemProductsRepository(
-                    Configuration["FileSystemStorage"], 
+                    connectionString, 
                     new System.IO.Abstractions.FileSystem(), 
                     new JsonSerializer<Product>(),
                     new Sha256HashCalculator());
 
                 services.AddScoped<IProductsRepository, FileSystemProductsRepository>(x => fileSystemProductsRepository);
-                    
             }
             else
             {
-                throw new ConfigurationException("Unknown storage.");
+                throw new InvalidDataException("Unknown storage type.");
             }
 
             services.AddScoped<ILocalizedStringParser, DutchParser>();
@@ -71,13 +72,13 @@ namespace IreckonuShop.API
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsProduction())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseHsts();
             }
             else
             {
-                app.UseHsts();
+                app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();

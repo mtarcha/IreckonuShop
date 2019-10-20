@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace IreckonuShop.API.Utilities
+namespace IreckonuShop.Common.Utilities.FileContentParsing
 {
     public interface IFileParser<out TData>
     {
-        IEnumerable<TData> Parse(TextReader textReader);
+        IEnumerable<TData> Parse(Stream stream);
     }
 }

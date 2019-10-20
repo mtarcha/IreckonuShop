@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace IreckonuShop.FileSystem
+namespace IreckonuShop.Common.Utilities.HashCalculation
 {
     public class Sha256HashCalculator : IHashCalculator
     {

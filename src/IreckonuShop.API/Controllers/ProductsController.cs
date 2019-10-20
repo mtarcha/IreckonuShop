@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using IreckonuShop.API.Utilities;
-using IreckonuShop.API.Utilities.LargeFileModelBinding;
 using IreckonuShop.API.ViewModels;
 using IreckonuShop.BusinessLogic.Services;
+using IreckonuShop.Common.Utilities.CustomModelBinding;
+using IreckonuShop.Common.Utilities.CustomModelBinding.LargeFormFile;
+using IreckonuShop.Common.Utilities.FileContentParsing;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IreckonuShop.API.Controllers
@@ -25,7 +25,7 @@ namespace IreckonuShop.API.Controllers
 
         [HttpPost]
         [DisableDefaultFormModelBinding]
-        public async Task<IActionResult> UploadFromCsvFile([ModelBinder(typeof(FormFileModelBinder<Product, CsvParser<Product>>))] FormFile<Product> file)
+        public async Task<IActionResult> UploadFromCsvFile([ModelBinder(typeof(LargeFormFileModelBinder<Product, CsvParser<Product>>))] LargeFormFile<Product> file)
         {
             if (!ModelState.IsValid)
             {

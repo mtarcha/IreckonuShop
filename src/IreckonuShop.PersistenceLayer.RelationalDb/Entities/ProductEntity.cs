@@ -1,6 +1,4 @@
-﻿using IreckonuShop.Domain;
-
-namespace IreckonuShop.PersistenceLayer.Relational.Entities
+﻿namespace IreckonuShop.PersistenceLayer.RelationalDb.Entities
 {
     public class ProductEntity
     {

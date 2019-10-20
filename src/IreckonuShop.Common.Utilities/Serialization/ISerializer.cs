@@ -1,4 +1,4 @@
-﻿namespace IreckonuShop.FileSystem
+﻿namespace IreckonuShop.Common.Utilities.Serialization
 {
     public interface ISerializer<T>
     {

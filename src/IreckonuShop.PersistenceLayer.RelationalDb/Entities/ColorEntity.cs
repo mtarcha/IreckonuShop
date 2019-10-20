@@ -1,4 +1,4 @@
-﻿namespace IreckonuShop.PersistenceLayer.Relational.Entities
+﻿namespace IreckonuShop.PersistenceLayer.RelationalDb.Entities
 {
     public class ColorEntity
     {

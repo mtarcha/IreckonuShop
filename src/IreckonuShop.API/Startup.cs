@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using AutoMapper;
+using IreckonuShop.API.Utilities;
 using IreckonuShop.BusinessLogic.Services;
 using IreckonuShop.Common.Utilities.HashCalculation;
 using IreckonuShop.Common.Utilities.Serialization;
@@ -12,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace IreckonuShop.API
 {
@@ -65,6 +67,26 @@ namespace IreckonuShop.API
             services.AddSingleton(mapper);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services
+                .AddSwaggerGen(c =>
+                {
+                    c.DescribeAllEnumsAsStrings();
+
+                    c.SwaggerDoc("v1", new Info
+                    {
+                        Version = "v1",
+                        Title = "Ireckonu Shop Api",
+                        Contact = new Contact
+                        {
+                            Name = "Ireckonu Shop Api",
+                            Email = "mtarcha@outlook.com",
+                            Url = "https://github.com/mtarcha/IreckonuShop"
+                        }
+                    });
+
+                    c.OperationFilter<FormFileSwaggerFilter>();
+                });
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -80,6 +102,11 @@ namespace IreckonuShop.API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ireckonu Shop Api V1");
+            });
         }
     }
 }

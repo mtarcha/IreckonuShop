@@ -23,7 +23,7 @@ namespace IreckonuShop.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
+        [HttpPost("upload-csv")]
         [DisableDefaultFormModelBinding]
         public async Task<IActionResult> UploadFromCsvFile([ModelBinder(typeof(LargeFormFileModelBinder<Product, CsvParser<Product>>))] LargeFormFile<Product> file)
         {

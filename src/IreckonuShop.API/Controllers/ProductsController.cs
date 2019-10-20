@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IreckonuShop.API.Controllers
 {
-    [Route("api/Products")]
+    [Route("api/products")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -31,13 +31,13 @@ namespace IreckonuShop.API.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
+
             foreach (var product in file.StreamContent())
             {
                 var productModel = _mapper.Map<BusinessLogic.Models.Product>(product);
                 await _productService.AddAsync(productModel, CancellationToken.None);
             }
-            
+
             return Ok();
         }
     }

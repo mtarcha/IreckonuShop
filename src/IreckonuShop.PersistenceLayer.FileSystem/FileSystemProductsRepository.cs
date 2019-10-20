@@ -11,6 +11,7 @@ namespace IreckonuShop.PersistenceLayer.FileSystem
 {
     public class FileSystemProductsRepository : IProductsRepository
     {
+        // TODO: lock opened files
         private readonly string _storageFolder;
         private readonly IFileSystem _fileSystem;
         private readonly ISerializer<Product> _serializer;

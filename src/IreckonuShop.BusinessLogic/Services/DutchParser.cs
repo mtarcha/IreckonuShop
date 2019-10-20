@@ -6,11 +6,11 @@ using IreckonuShop.Domain;
 
 namespace IreckonuShop.BusinessLogic.Services
 {
-    public class DutchParser : ILocalizedStringParser
+    public sealed class DutchParser : ILocalizedStringParser
     {
         private readonly Regex _deliveryRangeRegex = new Regex(@"(?<from>^\d+)-(?<to>\d+) werkdagen");
 
-        private Dictionary<string, Color> _nameToColorMap = new Dictionary<string, Color>
+        private readonly Dictionary<string, Color> _nameToColorMap = new Dictionary<string, Color>
         {
             { "blauw", Color.Blue },
             { "oranje", Color.Orange },
@@ -26,7 +26,7 @@ namespace IreckonuShop.BusinessLogic.Services
             { "beige", Color.Beige }
         };
 
-        private Dictionary<string, TargetClient> _targetNameToTargetClient = new Dictionary<string, TargetClient>
+        private readonly Dictionary<string, TargetClient> _targetNameToTargetClient = new Dictionary<string, TargetClient>
         {
             {"boy", TargetClient.Boy },
             {"girl", TargetClient.Girl },

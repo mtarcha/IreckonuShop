@@ -17,7 +17,6 @@ namespace IreckonuShop.API
 {
     public class Startup
     {
-        // todo: load same products!
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -40,13 +39,11 @@ namespace IreckonuShop.API
             }
             else if(storage == "json")
             {
-                var fileSystemProductsRepository = new FileSystemProductsRepository(
-                    connectionString, 
-                    new System.IO.Abstractions.FileSystem(), 
+                services.AddSingleton<IProductsRepository, FileSystemProductsRepository>(x => new FileSystemProductsRepository(
+                    connectionString,
+                    new System.IO.Abstractions.FileSystem(),
                     new JsonSerializer<Product>(),
-                    new Sha256HashCalculator());
-
-                services.AddScoped<IProductsRepository, FileSystemProductsRepository>(x => fileSystemProductsRepository);
+                    new Sha256HashCalculator()));
             }
             else
             {

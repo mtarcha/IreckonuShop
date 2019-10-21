@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IreckonuShop.PersistenceLay
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IreckonuShop.PersistenceLayer.FileSystem", "src\IreckonuShop.PersistenceLayer.FileSystem\IreckonuShop.PersistenceLayer.FileSystem.csproj", "{4CD0D28D-37E0-4494-8CDB-AC3DB4AFDE22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IreckonuShop.Common.Utilities", "src\IreckonuShop.Common.Utilities\IreckonuShop.Common.Utilities.csproj", "{AC987B21-4E35-4255-9135-D619A2B29F06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IreckonuShop.Common.Utilities", "src\IreckonuShop.Common.Utilities\IreckonuShop.Common.Utilities.csproj", "{AC987B21-4E35-4255-9135-D619A2B29F06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IreckonuShop.PersistenceLayer.FileSystem.UnitTests", "tests\Unit\IreckonuShop.PersistenceLayer.FileSystem.UnitTests\IreckonuShop.PersistenceLayer.FileSystem.UnitTests.csproj", "{DC63EF3E-0876-4397-AD6E-1F51CA093D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IreckonuShop.PersistenceLayer.FileSystem.UnitTests", "tests\Unit\IreckonuShop.PersistenceLayer.FileSystem.UnitTests\IreckonuShop.PersistenceLayer.FileSystem.UnitTests.csproj", "{DC63EF3E-0876-4397-AD6E-1F51CA093D20}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C19A7CE4-E959-4CBC-98D7-5259B1C41C6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IreckonuShop.PersistenceLayer.RelationalDb.UnitTests", "tests\Unit\IreckonuShop.PersistenceLayer.RelationalDb.UnitTests\IreckonuShop.PersistenceLayer.RelationalDb.UnitTests.csproj", "{4581531B-6CA5-4569-9AB7-5FCCA5F6614F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IreckonuShop.PersistenceLayer.RelationalDb.UnitTests", "tests\Unit\IreckonuShop.PersistenceLayer.RelationalDb.UnitTests\IreckonuShop.PersistenceLayer.RelationalDb.UnitTests.csproj", "{4581531B-6CA5-4569-9AB7-5FCCA5F6614F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

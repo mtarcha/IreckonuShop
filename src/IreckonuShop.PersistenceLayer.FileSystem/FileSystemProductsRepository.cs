@@ -9,9 +9,9 @@ using IreckonuShop.Domain;
 
 namespace IreckonuShop.PersistenceLayer.FileSystem
 {
+    // TODO: make thread safe
     public class FileSystemProductsRepository : IProductsRepository
     {
-        // TODO: lock opened files
         private readonly string _storageFolder;
         private readonly IFileSystem _fileSystem;
         private readonly ISerializer<Product> _serializer;

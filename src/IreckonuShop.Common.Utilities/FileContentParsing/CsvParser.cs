@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using CsvHelper;
 
 namespace IreckonuShop.Common.Utilities.FileContentParsing
